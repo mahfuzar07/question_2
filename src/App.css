@@ -1,0 +1,54 @@
+.App {
+  width: 100%;
+  height: 100vh;
+  padding: 0px 100px;
+}
+.productDetails {
+}
+table {
+  width: 100%;
+}
+.tablehd {
+  color: white;
+  background-color: rgb(51, 49, 49);
+}
+th {
+  border-radius: 5px;
+  padding: 5px;
+  text-align: left;
+}
+td {
+  padding: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.377);
+  border-radius: 5px;
+}
+.amounttd {
+  border: none;
+}
+input {
+  border: none;
+  width: 100%;
+  background: white;
+}
+input:focus {
+  outline: none;
+}
+button {
+  color: white;
+  background-color: #029c73;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.rmbutton {
+  color: #029c73;
+  background-color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}

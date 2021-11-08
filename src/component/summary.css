@@ -1,0 +1,47 @@
+.summary {
+  display: flex;
+  margin-top: 50px;
+  color: gray;
+}
+.note {
+  flex: 5;
+  padding: 10px;
+}
+
+.notes2 {
+  margin-top: 50px;
+}
+p {
+  margin-top: 20px;
+  padding: 10px 10px;
+  border: 1px solid rgba(128, 128, 128, 0.377);
+}
+.details {
+  padding: 10px;
+  flex: 4;
+  margin-left: 350px;
+  display: flex;
+  flex-direction: column;
+}
+span {
+  margin-right: 50px;
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: space-between;
+}
+span > select {
+  border: 1px solid rgba(128, 128, 128, 0.623);
+  width: 40%;
+  padding: 6px;
+  border-radius: 5px;
+}
+span > select:focus {
+  outline: none;
+}
+span > input {
+  border: 1px solid rgba(128, 128, 128, 0.623);
+  width: 40%;
+  padding: 6px;
+  border-radius: 5px;
+}
