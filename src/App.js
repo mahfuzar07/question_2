@@ -10,6 +10,7 @@ function App() {
       amount: '',
     },
   ]);
+  var subtotal = 0;
 
   const handleChange = (index, event) => {
     const values = [...inputField];
@@ -46,48 +47,51 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {inputField.map((inputField, index) => (
-              <tr>
-                <td key={index}>
-                  <input
-                    type="text"
-                    name="item"
-                    value={inputField.item}
-                    onChange={(event) => handleChange(index, event)}
-                  />
-                </td>
-                <td key={index}>
-                  <input
-                    type="number"
-                    name="qty"
-                    value={inputField.qty}
-                    onChange={(event) => handleChange(index, event)}
-                  />
-                </td>
-                <td key={index}>
-                  <input
-                    type="number"
-                    name="rate"
-                    value={inputField.rate}
-                    onChange={(event) => handleChange(index, event)}
-                  />
-                </td>
+            {inputField.map((inputField, index) => {
+              subtotal += inputField.qty * inputField.rate;
+              return (
+                <tr>
+                  <td key={index}>
+                    <input
+                      type="text"
+                      name="item"
+                      value={inputField.item}
+                      onChange={(event) => handleChange(index, event)}
+                    />
+                  </td>
+                  <td key={index}>
+                    <input
+                      type="number"
+                      name="qty"
+                      value={inputField.qty}
+                      onChange={(event) => handleChange(index, event)}
+                    />
+                  </td>
+                  <td key={index}>
+                    <input
+                      type="number"
+                      name="rate"
+                      value={inputField.rate}
+                      onChange={(event) => handleChange(index, event)}
+                    />
+                  </td>
 
-                <td className="amounttd" name="amount">
-                  $ {inputField.qty * inputField.rate}
-                  <input
-                    type="number"
-                    name="amount"
-                    value={inputField.amount}
-                    onChange={(event) => handleChange(index, event)}
-                  />
-                </td>
+                  <td key={index} className="amounttd">
+                    $ {(inputField.qty * inputField.rate).toFixed(2)}
+                    <input
+                      type="number"
+                      name="amount"
+                      value={inputField.amount}
+                      onChange={(event) => handleChange(index, event)}
+                    />
+                  </td>
 
-                <button onClick={handleRemoveField} className="rmbutton">
-                  <i class="fas fa-times"></i>
-                </button>
-              </tr>
-            ))}
+                  <button onClick={handleRemoveField} className="rmbutton">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </tr>
+              );
+            })}
           </tbody>
           <tfoot>
             <button onClick={() => handleAddField()}>
@@ -96,7 +100,7 @@ function App() {
           </tfoot>
         </table>
       </div>
-      <Summary />
+      <Summary subtotal={subtotal} />
     </div>
   );
 }

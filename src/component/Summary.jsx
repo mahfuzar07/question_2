@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import './summary.css';
 
-function Summary(props) {
+function Summary({ subtotal }) {
   const [discount, setDiscount] = useState([]);
   const [tax, setTax] = useState([]);
   const [ship, setShip] = useState(0);
   const [paid, setPaid] = useState(0);
 
-  const subtotal = 100;
-  const discountvalue = [0, 5, 10, 15];
-  const taxvalue = [0, 5, 10, 15];
+  const discountvalue = [0, 2, 5, 10, 15];
+  const taxvalue = [0, 2, 5, 10, 15];
   const discountamount = (subtotal * discount) / 100;
   const afterDiscount = subtotal - discountamount;
   const taxamount = (subtotal * tax) / 100;
 
-  const total = parseInt(afterDiscount) + parseInt(taxamount) + parseInt(ship);
+  const total =
+    parseFloat(afterDiscount) + parseFloat(taxamount) + parseFloat(ship);
 
   const balanceDeu = total - paid;
 
@@ -34,7 +34,7 @@ function Summary(props) {
       </div>
       <div className="details">
         <span>
-          Subtotal <b>{subtotal}</b>
+          Subtotal <b>$ {subtotal.toFixed(2)}</b>
         </span>
         <span>
           Discount
@@ -59,24 +59,24 @@ function Summary(props) {
           Shipping
           <input
             type="number"
-            value={ship}
+            value={parseFloat(ship)}
             onChange={(e) => setShip(e.target.value)}
           />
         </span>
 
         <span>
-          Total <b>{total}</b>
+          Total <b>$ {total.toFixed(2)}</b>
         </span>
         <span>
           Amount Paid
           <input
             type="number"
-            value={paid}
+            value={parseFloat(paid)}
             onChange={(e) => setPaid(e.target.value)}
           />
         </span>
         <span>
-          Balance Due<b>{balanceDeu}</b>
+          Balance Due<b>$ {balanceDeu.toFixed(2)}</b>
         </span>
       </div>
     </div>
